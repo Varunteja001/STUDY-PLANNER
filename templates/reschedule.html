@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Reschedule Study Date</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="reschedule-container">
+
+<h2>Reschedule Study Plan</h2>
+<p class="subtitle">Change the study date for this topic</p>
+
+<div class="plan-info">
+
+<p><strong>Subject:</strong> {{ plan.subject }}</p>
+
+<p><strong>Topic:</strong> {{ plan.topic }}</p>
+
+<p><strong>Current Study Date:</strong>{{plan.study_date.strftime('%B %d,%Y')}}</p>
+
+<p><strong>Exam Date:</strong> {{ plan.exam_date.strftime('%B %d,%Y')}}</p>
+
+</div>
+
+<form method="POST">
+
+<label for="new_date">New Study Date</label>
+
+<input 
+type="date" 
+name="new_date" 
+required
+max="{{ plan.exam_date }}"
+>
+
+<button type="submit">Update Study Date</button>
+
+</form>
+
+<a href="/view_plan" class="back-dashboard">← Back to Study Plans</a>
+
+</div>
+
+</body>
+</html>

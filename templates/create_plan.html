@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Study Plan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="plan-page">
+<div class="plan-card">
+<h2>Create Study Plan</h2>
+
+
+<form method="POST">
+    <input type="text" name="subject" placeholder="Available Subject Name" required>
+    <textarea name="topics" placeholder="Topics separated by commas" required></textarea>
+    <label>Exam Date</label>
+    <input type="date" name="exam_date" required>
+    <button type="submit">Generate Plan</button>
+</form>
+
+<a href="/dashboard" class="back-dashboard">Back to Dashboard</a>
+
+</div>
+
+<div class="subjects">
+<h1 class="section-title">Available Subjects</h2>
+
+
+
+<details class="subject-box">
+<summary>Discrete Mathematics (DM)</summary>
+<ul>
+<li>Sets</li>
+<li>Relations</li>
+<li>Functions</li>
+<li>Graph Theory</li>
+</ul>
+</details>
+
+<details class="subject-box">
+<summary>Introduction to AI (AI)</summary>
+<ul>
+<li>Search Algorithms</li>
+<li>Knowledge Representation</li>
+<li>Machine Learning Basics</li>
+<li>Alpha Beta Pruning</li>
+</ul>
+</details>
+
+<details class="subject-box">
+<summary>Database Management System (DBMS)</summary>
+<ul>
+<li>ER Model</li>
+<li>Normalization</li>
+<li>SQL</li>
+<li>Transactions</li>
+</ul>
+</details>
+
+<details class="subject-box">
+<summary>Automata Theory Compiler Design (ATCD)</summary>
+<ul>
+<li>Finite Automata</li>
+<li>Regular Expressions</li>
+<li>Context Free Grammar</li>
+</ul>
+</details>
+
+<details class="subject-box">
+<summary>Object Oriented Programming through Java (JAVA)</summary>
+<ul>
+<li>Classes & Objects</li>
+<li>Inheritance</li>
+<li>Polymorphism</li>
+<li>Exception Handling</li>
+</ul>
+</details>
+</div>
+
+</div>
+<br>
+
+</body>
+</html>

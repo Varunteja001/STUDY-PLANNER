@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Study Plans</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="view-container">
+
+<h2>Your Study Plan</h2>
+
+<table class="study-table">
+
+<tr>
+<th>Subject</th>
+<th>Topic</th>
+<th>Exam Date</th>
+<th>Study Date</th>
+<th>Notes</th>
+<th>Action</th>
+</tr>
+
+{% for plan in plans %}
+<tr>
+<td>{{ plan.subject }}</td>
+<td>{{ plan.topic }}</td>
+<td>{{plan.exam_date.strftime('%B %d,%Y')}}</td>
+<td>{{plan.study_date.strftime('%B %d,%Y')}}</td>
+
+<td><a href="{{ notes_links[plan.subject] }}" target="_blank">Notes</a></td>
+
+<td>
+{% if not plan.completed %}
+<a href="/complete/{{ plan.id }}">Complete</a>|
+<a href="/reschedule/{{plan.id}}">Reschedule</a>|
+{% endif %}
+<a href="/delete/{{ plan.id }}"> Delete</a>
+
+</td>
+
+</tr>
+{% endfor %}
+
+</table>
+<div class="progress-section">
+<h3>Study Progress</h3>
+<p>Total Topics: {{ total }}</p>
+<p>Completed: {{ completed }}</p>
+<p>Progress: {{ progress }}%</p>
+
+<div class="progress-bar">
+<div class="progress-fill" style="width: {{progress}}%; ">{{ progress }}%</div>
+</div>
+
+<br>
+<a href="/dashboard" class="back-dashboard">Back to Dashboard</a>
+</div>
+</div>
+</body>
+</html>
