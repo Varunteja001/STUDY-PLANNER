@@ -18,11 +18,15 @@
 {% endif %}
 {% endwith %} 
 
-<form method="POST">
+<form id="loginForm" method="POST">
 
-<input type="text" name="username" placeholder="Username" required>
+<input type="text" name="username" id="username" placeholder="Username" required>
 
-<input type="password" name="password" placeholder="Password" required>
+<div class="password-wrapper">
+     <input type="password" name="password" id="password" placeholder="Password" required >
+     <span id="showPassword">👁️</span>
+</div>
+
 
 <button type="submit">Login</button>
 
@@ -35,5 +39,6 @@ Don't have an account?
 </p>
 
 </div>
+<script src="{{url_for('static',filename='js/main.js')}}"></script>
 </body>
 </html>
